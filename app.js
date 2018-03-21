@@ -2,18 +2,17 @@ const express = require('express')
 const app = express()
 const bodyparser = require('body-parser')
 const { DialogflowApp } = require('actions-on-google');
-const logger = require('nodejslogger')
-logger.init({"file":"./logs/logFile.log", "mode":"DIE"})
+var facebook = require('./facebook')
 app.use(bodyparser.json());
 app.use(express.static('html'));
-app.post('/welcome', (req, res) =>{ 
+app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
   logger.info('initial req:',req.body.result.resolvedQuery);
   
-  /*if(req.body.originalRequest.source === 'facebook'){
+  if(req.body.originalRequest.source === 'facebook'){    
     facebook.operation(req,res);
   }
-  else if(req.body.originalRequest.source === 'slack'){
+  /*else if(req.body.originalRequest.source === 'slack'){
     slack.operation(req,res);
   }
   else if(req.body.originalRequest.source === 'google' && req.body.result.action === 'incident_status'){ 
