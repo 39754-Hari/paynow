@@ -104,4 +104,5 @@ if(req.body.result.action === 'input.welcome'){
       };
   res.json(resObj);
   }
+};
 module.exports = facebookFunction;
