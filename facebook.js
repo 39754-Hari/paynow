@@ -2,6 +2,7 @@ var serviceNowApi = require('./serviceNowApi.js')
 var facebookFunction={};
 
 facebookFunction.operation = function(req,res){
+    console.log('req.body.result.action:',req.body.result.action);
 if(req.body.result.action === 'input.welcome'){  
     var resObj = {};
         resObj={
