@@ -7,7 +7,6 @@ app.use(bodyparser.json());
 app.use(express.static('html'));
 app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
-  logger.info('initial req:',req.body.result.resolvedQuery);
   
   if(req.body.originalRequest.source === 'facebook'){    
     facebook.operation(req,res);
