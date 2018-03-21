@@ -1,5 +1,3 @@
-var serviceNowApi = require('./serviceNowApi.js')
-var facebookFunction={};
 
 facebookFunction.operation = function(req,res){
     console.log('req.body.result.action:',req.body.result.action);
