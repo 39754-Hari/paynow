@@ -21,11 +21,14 @@ if(req.body.result.action === 'input.welcome'){
                         "image_url": "https://cdn2.iconfinder.com/data/icons/travel-set-2/512/18-512.png",
                         "subtitle": "Category for bus's schedule related queries",
                         "buttons": [
-                          {
-                            "title": "Select",
-                            "type": "postback",
-                            "payload": "schedule"
-                          }
+                            {
+                                "type": "web_url",
+                 //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
+                                "url": "https://google.com",
+                                "title": "info",
+                                "webview_height_ratio": "tall",
+                                "messenger_extensions": "true"
+                              }
                         ]
                       },
                       {
