@@ -3,6 +3,7 @@ const app = express()
 const bodyparser = require('body-parser')
 const { DialogflowApp } = require('actions-on-google');
 var facebook = require('./facebook')
+var fs = require('fs');
 app.use(bodyparser.json());
 app.use(express.static('html'));
 app.post('/pay', (req, res) =>{ 
@@ -37,7 +38,7 @@ app.get('/getInfo/:price',function(req, res){
  });
  var processRequest = function(contextParams){
   return new Promise(function(resolve, reject){
-   var html = /html/index.html;  
+   var html = fs.readFileSync('./html/index.html');  
    console.log('contextParams:'+contextParams);
    console.log(html);
    html = html.replace('Rs'," Rs "+contextParams.price);    
