@@ -42,7 +42,7 @@ app.get('/checkout/:price',function(req, res){
    var html = fs.readFileSync('./html/index.html','utf-8');  
    console.log('contextParams:'+contextParams.price);
    console.log(html);
-   html = html.replace('Rs'," Rs "+contextParams.price);    
+   html = html.replace('Rupees'," Rs "+contextParams.price);    
    resolve(html);
   })
  }
