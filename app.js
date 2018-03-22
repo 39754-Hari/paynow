@@ -40,7 +40,7 @@ app.get('/checkout/:price',function(req, res){
  var processRequest = function(contextParams){
   return new Promise(function(resolve, reject){
    var html = fs.readFileSync('./html/index.html','utf-8');  
-   console.log('contextParams:'+contextParams);
+   console.log('contextParams:'+contextParams.price);
    console.log(html);
    html = html.replace('Rs'," Rs "+contextParams.price);    
    resolve(html);
