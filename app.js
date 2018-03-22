@@ -45,8 +45,7 @@ app.get('/checkout/:price',function(req, res){
    //html = html.replace('Rupees'," Rs "+contextParams.price);    
    resolve(html);
   })
- }
- 
+ } 
  app.get('/getValues/',function(req, res){ 
    console.log('req:',req);
  });
