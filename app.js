@@ -42,12 +42,14 @@ app.get('/checkout/:price',function(req, res){
    var html = fs.readFileSync('./html/index.html','utf-8');  
    console.log('contextParams:'+contextParams.price);
    console.log(html);
-   html = html.replace('Rupees'," Rs "+contextParams.price);    
+   //html = html.replace('Rupees'," Rs "+contextParams.price);    
    resolve(html);
   })
  }
  
-
+ app.get('/getValues/',function(req, res){ 
+   console.log('req:',req);
+ });
 
 
 app.listen(process.env.port||process.env.PORT||3000, () => console.log('App started Running!'));
