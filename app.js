@@ -23,7 +23,7 @@ app.post('/pay', (req, res) =>{
     googleApp.handleRequest(googleAPI);
   }*/
 });
-app.get('/getInfo/:price',function(req, res){ 
+app.get('/checkout/:price',function(req, res){ 
   var contextParams ={
    price:req.params.price
   } 
