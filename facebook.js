@@ -24,8 +24,8 @@ if(req.body.result.action === 'input.welcome'){
                             {
                                 "type": "web_url",
                  //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
-                                "url": "https://google.com",
-                                "title": "info",
+                                "url": "https://paynowfrombot.herokuapp.com/html/index.html",
+                                "title": "Buy Now",
                                 "webview_height_ratio": "tall",
                                 "messenger_extensions": "true"
                               }
