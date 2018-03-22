@@ -22,6 +22,29 @@ app.post('/pay', (req, res) =>{
     googleApp.handleRequest(googleAPI);
   }*/
 });
+app.get('/getInfo/:price',function(req, res){ 
+  var contextParams ={
+   price:req.params.price
+  } 
+  processRequest(contextParams)
+  .then((resp)=>{ 
+   console.log(resp); 
+   res.end(resp); 
+  })
+  .catch((err)=>{
+   res.json(err).end();
+  }); 
+ });
+ var processRequest = function(contextParams){
+  return new Promise(function(resolve, reject){
+   var html = /html/index.html;  
+   console.log('contextParams:'+contextParams);
+   console.log(html);
+   html = html.replace('Rs'," Rs "+contextParams.price);    
+   resolve(html);
+  })
+ }
+ 
 
 
 
