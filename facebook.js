@@ -17,14 +17,14 @@ if(req.body.result.action === 'input.welcome'){
                     "top_element_style": "compact",
                     "elements": [
                       {
-                        "title": "Bus Schedule",
+                        "title": "Item 1",
                         "image_url": "https://cdn2.iconfinder.com/data/icons/travel-set-2/512/18-512.png",
-                        "subtitle": "Category for bus's schedule related queries",
+                        "subtitle": "Item 1 : Rs1500",
                         "buttons": [
                             {
                                 "type": "web_url",
                  //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
-                                "url": "https://paynowfrombot.herokuapp.com/html/index.html",
+                                "url": "https://paynowfrombot.herokuapp.com/checkout/1500",
                                 "title": "Buy Now",
                                 "webview_height_ratio": "tall",
                                 "messenger_extensions": "true"
