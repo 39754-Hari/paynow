@@ -48,9 +48,7 @@
 </body>
 </html>
 <script>
-  function closeFunction(){
-    window.close();
-  }
+ 
 
   (function(d, s, id){
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -59,9 +57,14 @@
   js.src = "https://connect.facebook.com/en_US/messenger.Extensions.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'Messenger'));
-MessengerExtensions.requestCloseBrowser(function success() {
+
+function closeFunction(){
+    MessengerExtensions.requestCloseBrowser(function success() {
   // webview closed
 }, function error(err) {
   // an error occurred
 });
+    //window.close();
+  }
+
   </script>
