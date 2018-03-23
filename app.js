@@ -6,6 +6,7 @@ var facebook = require('./facebook')
 var fs = require('fs');
 app.use(bodyparser.json());
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
   
@@ -46,9 +47,9 @@ app.get('/checkout/:price',function(req, res){
    resolve(html);
   })
  } 
- app.get('/getValues/',function(req, res){ 
+ app.post('/getValues',function(req, res){ 
    console.log('Inside getValues');
-   console.log('req:',req);
+   console.log('req:',req.body);
  });
 
 
