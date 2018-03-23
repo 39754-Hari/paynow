@@ -21,24 +21,24 @@
         </div>
         <p>
           <label for="cardName">Enter name on card</label>
-          <input type="text" name="cardName" class="checkout-input checkout-name" placeholder="Your name" autofocus="">
+          <input type="text" name="cardName" class="checkout-input checkout-name" placeholder="Your name" autofocus="true" required="true">
         </p>
         <p>
           <label style="margin-left: -101px !important;"> Enter card expiry month/year</label>
           <input type="number" name="expMonth" class="checkout-input checkout-exp" placeholder="MM" 
-          style="margin-top: 23px !important;margin-left: 2px !important;" size="2" maxlength="2">
+          style="margin-top: 23px !important;margin-left: 2px !important;" size="2" minlength="2" maxlength="2" required="true">
           <input type="number" name="expYear" class="checkout-input checkout-exp" placeholder="YY" 
-          style="margin-top: 23px !important;margin-left: 10px !important;" size="2" maxlength="2">
+          style="margin-top: 23px !important;margin-left: 10px !important;" size="2" maxlength="2" required="true">
         </p>
         <p>
           <label for="cardNumber"> Enter card number</label>
           <input type="number" name="cardNumber" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111" size="16"
-           maxlength="16">
+           maxlength="16" required="true">
         </p>
         <p>
           <label style="margin-left: -46px !important;" for="cvv"> Enter CVV/CVC</label>
-          <input type="number" name="cvv" class="checkout-input checkout-cvc" placeholder="CVC" 
-          style="margin-top: 25px !important;margin-left: 2px !important;" size="3" maxlength="3">
+          <input type="password" name="cvv" class="checkout-input checkout-cvc" placeholder="CVC" 
+          style="margin-top: 25px !important;margin-left: 2px !important;" size="3" maxlength="3" required="true">
         </p>
 
         <p>
