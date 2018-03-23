@@ -6,7 +6,7 @@ var facebook = require('./facebook')
 var fs = require('fs');
 app.use(bodyparser.json());
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyparser.urlencoded({ extended: true })); 
 app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
   
