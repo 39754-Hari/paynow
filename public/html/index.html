@@ -42,8 +42,13 @@
         </p>
 
         <p>
-          <input type="submit" value="Purchase" class="checkout-btn">
+          <input type="submit" value="Purchase" class="checkout-btn" on-click="closeFunction()">
         </p>
       </form>  
 </body>
 </html>
+<script>
+  function closeFunction(){
+    window.close();
+  }
+  </script>
