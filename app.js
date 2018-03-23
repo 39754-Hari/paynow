@@ -47,6 +47,7 @@ app.get('/checkout/:price',function(req, res){
   })
  } 
  app.get('/getValues/',function(req, res){ 
+   console.log('Inside getValues');
    console.log('req:',req);
  });
 
