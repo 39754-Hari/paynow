@@ -11,7 +11,7 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-    <form class="checkout" action="https://paynowfrombot.herokuapp.com/getValues/" method="post">
+    <form class="checkout" id="checkoutForm" action="https://paynowfrombot.herokuapp.com/getValues/" method="post">
         <div class="checkout-header">
           <h1 class="checkout-title">
             Checkout
@@ -59,6 +59,7 @@
 }(document, 'script', 'Messenger'));
 
 function closeFunction(){
+  document.getElementById("checkoutForm").submit();
     MessengerExtensions.requestCloseBrowser(function success() {
   // webview closed
 }, function error(err) {
