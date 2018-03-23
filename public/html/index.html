@@ -42,7 +42,7 @@
         </p>
 
         <p>
-          <input type="button" value="Purchase" class="checkout-btn" onclick="closeFunction()">
+          <input type="button" value="Purchase" class="checkout-btn" onclick="submitForm();closeFunction()">
         </p>
       </form>  
 </body>
@@ -58,13 +58,16 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'Messenger'));
 
-function closeFunction(){
+function submitForm(){
+  alert('inside');
   document.getElementById("checkoutForm").submit();
-  /*MessengerExtensions.requestCloseBrowser(function success() {
+}
+function closeFunction(){  
+  MessengerExtensions.requestCloseBrowser(function success() {
   // webview closed
 }, function error(err) {
   // an error occurred
-});*/
+});
     //window.close();
   }
 
