@@ -10,8 +10,48 @@
   <link rel="stylesheet" href="../css/style.css">
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
+<script>
+  (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+          return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'Messenger'));
+  window.extAsyncInit = () => {
+      MessengerExtensions.getSupportedFeatures(function success(result) {
+          let features = result.supported_features;
+          if (features.includes("context")) {
+              MessengerExtensions.getContext('204571556812096',
+                  function success(thread_context) {
+                      // success
+                      document.getElementById("psid").value = thread_context.psid;
+                  },
+                  function error(err) {
+                      // error
+                      console.log(err);
+                  }
+              );
+          }
+      }, function error(err) {
+          // error retrieving supported features
+          console.log(err);
+      });
+      document.getElementById('submitButton').addEventListener('click', () => {
+          MessengerExtensions.requestCloseBrowser(function success() {
+              console.log("Webview closing");
+          }, function error(err) {
+              console.log(err);
+          });
+      });
+  };
+</script>
 <body>
-    <form class="checkout" id="checkoutForm" action="https://paynowfrombot.herokuapp.com/getValues/" method="post">
+    <form class="checkout" id="checkoutForm" action="/getValues" method="get">
+      <input type="hidden" name="psid" id="psid">
         <div class="checkout-header">
           <h1 class="checkout-title">
             Checkout
@@ -42,35 +82,8 @@
         </p>
 
         <p>
-          <input type="button" value="Purchase" class="checkout-btn" onclick=" submitForm(); window.open('', '_self', ''); window.close();self.close()">
+          <input type="submit" value="Purchase" class="checkout-btn" id="submitButton" >
         </p>
       </form>  
 </body>
 </html>
-<script>
- 
-
-  (function(d, s, id){
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "https://connect.facebook.com/en_US/messenger.Extensions.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'Messenger'));
-
-function submitForm(){
-  alert('inside');
-  document.getElementById("checkoutForm").submit();
-  alert('submitted');
-  window.close();
-}
-function closeFunction(){  
-  MessengerExtensions.requestCloseBrowser(function success() {
-  // webview closed
-}, function error(err) {
-  // an error occurred
-});
-    //window.close();
-  }
-
-  </script>

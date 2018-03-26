@@ -7,6 +7,11 @@ var fs = require('fs');
 app.use(bodyparser.json());
 app.use(express.static('public'));
 app.use(bodyparser.urlencoded({ extended: true })); 
+
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const SERVER_URL = process.env.SERVER_URL;
+const APP_SECRET = process.env.APP_SECRET;
+
 app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
   
@@ -25,32 +30,52 @@ app.post('/pay', (req, res) =>{
   }*/
 });
 
-app.get('/checkout/:price',function(req, res){ 
-  var contextParams ={
-   price:req.params.price
-  } 
-  processRequest(contextParams)
-  .then((resp)=>{ 
-   console.log(resp); 
-   res.end(resp); 
-  })
-  .catch((err)=>{
-   res.json(err).end();
-  }); 
- });
- var processRequest = function(contextParams){
-  return new Promise(function(resolve, reject){
-   var html = fs.readFileSync('./public/html/index.html','utf-8');  
-   console.log('contextParams:'+contextParams.price);
-   console.log(html);
-   //html = html.replace('Rupees'," Rs "+contextParams.price);    
-   resolve(html);
-  })
- } 
- app.post('/getValues',function(req, res){ 
+app.get('/checkout',function(req, res,next){
+  console.log('Inside checkout.before html');
+  let referer = req.get('Referer');
+  if (referer) {
+      if (referer.indexOf('www.messenger.com') >= 0) {
+          res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.messenger.com/');
+      } else if (referer.indexOf('www.facebook.com') >= 0) {
+          res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
+      }
+      res.sendFile('public/index.html', {root: __dirname});
+  }
+});
+ app.get('/getValues',function(req, res){ 
    console.log('Inside getValues');
-   console.log('req:',req.body);
- });
+   let body = req.query;
+   console.log('Name:',body.cardName)
+   let response = {
+       "text": `Great, I will book your order`
+   };
 
+   res.status(200).send('Please close this window to return to the conversation thread.');
+   callSendAPI(body.psid, response);
+ });
+// Sends response messages via the Send API
+function callSendAPI(sender_psid, response) {
+  // Construct the message body
+  console.log('inside callsendAPi');
+  let request_body = {
+      "recipient": {
+          "id": sender_psid
+      },
+      "message": response
+  };
+  console.log(request_body);
+  // Send the HTTP request to the Messenger Platform
+  request({
+      "uri": "https://graph.facebook.com/v2.6/me/messages",
+      "qs": {"access_token": PAGE_ACCESS_TOKEN},
+      "method": "POST",
+      "json": request_body
+  }, (err, res, body) => {
+      if (!err) {
+          console.log('message sent!')
+      } else {
+          console.error("Unable to send message:" + err);
+      }
+  });
 
 app.listen(process.env.port||process.env.PORT||3000, () => console.log('App started Running!'));

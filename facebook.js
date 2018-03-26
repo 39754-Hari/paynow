@@ -24,7 +24,7 @@ if(req.body.result.action === 'input.welcome'){
                             {
                                 "type": "web_url",
                  //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
-                                "url": "https://paynowfrombot.herokuapp.com/checkout/1500",
+                                "url": "https://paynowfrombot.herokuapp.com/checkout/",
                                 "title": "Buy Now",
                                 "webview_height_ratio": "tall",
                                 "messenger_extensions": "true"
@@ -39,7 +39,7 @@ if(req.body.result.action === 'input.welcome'){
                           {
                             "type": "web_url",
                             //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
-                            "url": "https://paynowfrombot.herokuapp.com/checkout/1800",
+                            "url": "https://paynowfrombot.herokuapp.com/checkout/",
                             "title": "Buy Now",
                             "webview_height_ratio": "tall",
                             "messenger_extensions": "true"
@@ -54,7 +54,7 @@ if(req.body.result.action === 'input.welcome'){
                           {
                             "type": "web_url",
                             //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
-                            "url": "https://paynowfrombot.herokuapp.com/checkout/1800",
+                            "url": "https://paynowfrombot.herokuapp.com/checkout/",
                             "title": "Buy Now",
                             "webview_height_ratio": "tall",
                             "messenger_extensions": "true"
