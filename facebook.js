@@ -17,9 +17,9 @@ if(req.body.result.action === 'input.welcome'){
                     "top_element_style": "compact",
                     "elements": [
                       {
-                        "title": "Item 1",
-                        "image_url": "https://cdn2.iconfinder.com/data/icons/travel-set-2/512/18-512.png",
-                        "subtitle": "Item 1 : Rs1500",
+                        "title": "Blue Shirt",
+                        "image_url": "https://blackhawk.com/getattachment/Products/Apparel/Men-s-Apparel/Shirts/BLACKHAWK-Tac-Convertible-Shirt/TS04AB-01.png.aspx?maxsidesize=700",
+                        "subtitle": "Cotton shirt : Rs.1500",
                         "buttons": [
                             {
                                 "type": "web_url",
@@ -32,26 +32,32 @@ if(req.body.result.action === 'input.welcome'){
                         ]
                       },
                       {
-                        "title": "Quality of Service",
-                        "image_url": "https://www.hbs.edu/mba/PublishingImages/icon-handshake.png",
-                        "subtitle": "Category for our service quality related queries",
+                        "title": "Fashion plus",
+                        "image_url": "https://sc01.alicdn.com/kf/HTB1ZQQjJVXXXXX1XVXX760XFXXXx/200419480/HTB1ZQQjJVXXXXX1XVXX760XFXXXx.png",
+                        "subtitle": "Linen Rs.1800",
                         "buttons": [
                           {
-                            "type": "postback",
-                            "title": "Select",
-                            "payload": "quality of service"
+                            "type": "web_url",
+                            //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
+                            "url": "https://paynowfrombot.herokuapp.com/checkout/1800",
+                            "title": "Buy Now",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": "true"
                           }
                         ]
                       },
                       {
-                        "title": "Payment related",
-                        "image_url": "https://www.rupay.co.in/sites/all/themes/rupay/images/cashback.png",
-                        "subtitle": "Category for all payment related queries",
+                        "title": "Checked Shirt",
+                        "image_url": "https://www.elmc.co/images/product/Flannel%20shirt%20red%201.png",
+                        "subtitle": "Checked casual Rs.1700",
                         "buttons": [
                           {
-                            "type": "postback",
-                            "title": "Select",
-                            "payload": "payment"
+                            "type": "web_url",
+                            //"url": "https://limitless-lake-62312.herokuapp.com/index.html",
+                            "url": "https://paynowfrombot.herokuapp.com/checkout/1800",
+                            "title": "Buy Now",
+                            "webview_height_ratio": "tall",
+                            "messenger_extensions": "true"
                           }
                         ]
                       }
