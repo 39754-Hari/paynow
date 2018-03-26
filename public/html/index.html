@@ -42,7 +42,7 @@
         </p>
 
         <p>
-          <input type="button" value="Purchase" class="checkout-btn" onclick="submitForm();closeFunction()">
+          <input type="button" value="Purchase" class="checkout-btn" onclick="submitForm();">
         </p>
       </form>  
 </body>
@@ -62,6 +62,7 @@ function submitForm(){
   alert('inside');
   document.getElementById("checkoutForm").submit();
   alert('submitted');
+  window.close();
 }
 function closeFunction(){  
   MessengerExtensions.requestCloseBrowser(function success() {
