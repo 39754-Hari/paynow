@@ -16,6 +16,8 @@ const APP_SECRET = process.env.APP_SECRET;
 app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
   
+  senderId = req.body.originalRequest.data.sender.id;
+  
   if(req.body.originalRequest.source === 'facebook'){    
     facebook.operation(req,res);
   }
@@ -32,7 +34,6 @@ app.post('/pay', (req, res) =>{
 });
 
 app.get('/checkout',function(req, res,next){  
-  senderId = req.body.originalRequest.data.sender.id;
   console.log('Inside checkout.before html');
   let referer = req.get('Referer');
   if (referer) {
