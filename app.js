@@ -31,7 +31,8 @@ app.post('/pay', (req, res) =>{
   }*/
 });
 
-app.get('/checkout',function(req, res,next){
+app.get('/checkout',function(req, res,next){  
+  senderId = req.body.originalRequest.data.sender.id;
   console.log('Inside checkout.before html');
   let referer = req.get('Referer');
   if (referer) {
@@ -60,7 +61,7 @@ function callSendAPI(sender_psid, response) {
   console.log('inside callsendAPi');
   let request_body = {
     recipient: {
-        id: sender_psid,
+        id: senderId,
     },
     message: {
         text: response,
