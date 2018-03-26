@@ -39,7 +39,7 @@ app.get('/checkout',function(req, res,next){
       } else if (referer.indexOf('www.facebook.com') >= 0) {
           res.setHeader('X-Frame-Options', 'ALLOW-FROM https://www.facebook.com/');
       }
-      res.sendFile('public/index.html', {root: __dirname});
+      res.sendFile('public/html/index.html', {root: __dirname});
   }
 });
  app.get('/getValues',function(req, res){ 
