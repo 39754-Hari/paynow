@@ -59,16 +59,21 @@ function callSendAPI(sender_psid, response) {
   // Construct the message body
   console.log('inside callsendAPi');
   let request_body = {
-      "recipient": {
-          "id": sender_psid
-      },
-      "messages": [
+    recipient: {
+        id: sender_psid,
+    },
+    message: {
+        text: response,
+    },
+    speech: '',
+    displayText: '',
+    messages: [
         {
-          "type": 0,
-          "platform": "facebook",
-          "speech": response
+            "type": 0,
+            "platform": "facebook",
+            "speech": "Hi " + response
         }
-      ]
+    ]
   };
   console.log(request_body);
   // Send the HTTP request to the Messenger Platform
