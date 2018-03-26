@@ -15,7 +15,7 @@ const APP_SECRET = process.env.APP_SECRET;
 
 app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
-  
+  console.log(req.body.originalRequest.data.sender.id);
   senderId = req.body.originalRequest.data.sender.id;
   
   if(req.body.originalRequest.source === 'facebook'){    
