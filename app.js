@@ -5,13 +5,14 @@ const { DialogflowApp } = require('actions-on-google');
 var facebook = require('./facebook')
 var fs = require('fs');
 const request = require('request');
+const config = require('./config');
 app.use(bodyparser.json());
 app.use(express.static('public'));
 app.use(bodyparser.urlencoded({ extended: true })); 
 
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const SERVER_URL = process.env.SERVER_URL;
-const APP_SECRET = process.env.APP_SECRET;
+const PAGE_ACCESS_TOKEN = config.PAGE_ACCESS_TOKEN;
+const SERVER_URL = config.SERVER_URL;
+const APP_SECRET = config.APP_SECRET;
 
 app.post('/pay', (req, res) =>{ 
   console.log('initial req:',req.body.result.resolvedQuery);
@@ -64,9 +65,7 @@ function callSendAPI(sender_psid, response) {
     recipient: {
         id: senderId,
     },
-    message:{
-      'text': `Great, I will book your order`
-    }/*,
+    message:response/*,
     speech: '',
     displayText: '',
     messages: [
@@ -88,7 +87,7 @@ function callSendAPI(sender_psid, response) {
       "json": request_body
   }, (err, res, body) => {
       if (!err) {
-          console.log('message sent!',res,body);
+          console.log('message sent!');
       } else {
           console.error("Unable to send message:" + err);
       }
