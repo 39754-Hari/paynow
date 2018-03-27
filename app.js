@@ -49,7 +49,8 @@ app.get('/checkout',function(req, res,next){
  app.get('/getValues',function(req, res){ 
    console.log('Inside getValues');
    let body = req.query;
-   console.log('Name:',body.cardName)
+   console.log('Name:',body.cardName)  
+   console.log('Exp month: ',body.expMonth) 
    let response = {
        'text': `Great, Your order has been placed successfully!`
    };
