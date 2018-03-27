@@ -64,9 +64,8 @@ function callSendAPI(sender_psid, response) {
     recipient: {
         id: senderId,
     },
-    message: {
-        text: response,
-    },
+    message: 
+       response,
     speech: '',
     displayText: '',
     messages: [
