@@ -50,7 +50,7 @@ app.get('/checkout',function(req, res,next){
    let body = req.query;
    console.log('Name:',body.cardName)
    let response = {
-       'text': `Great, I will book your order`
+       'text': `Great, Your order has been placed successfully!`
    };
 
    res.status(200).send('Please close this window to return to the conversation thread.');
