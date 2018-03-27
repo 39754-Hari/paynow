@@ -50,7 +50,7 @@ app.get('/checkout',function(req, res,next){
    let body = req.query;
    console.log('Name:',body.cardName)
    let response = {
-       "text": `Great, I will book your order`
+       'text': `Great, I will book your order`
    };
 
    res.status(200).send('Please close this window to return to the conversation thread.');
@@ -64,8 +64,9 @@ function callSendAPI(sender_psid, response) {
     recipient: {
         id: senderId,
     },
-    message: 
-       response,
+    message:{
+      'text': `Great, I will book your order`
+    }/*,
     speech: '',
     displayText: '',
     messages: [
@@ -74,7 +75,7 @@ function callSendAPI(sender_psid, response) {
             "platform": "facebook",
             "speech": "Hi " + response
         }
-    ]
+    ]*/
   };
   console.log(request_body);
   // Send the HTTP request to the Messenger Platform
